@@ -1,0 +1,60 @@
+﻿@page
+@model Pop_Simona_Proiect1.Pages.Programari.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editare</h1>
+
+<h4>Programare la medic</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProgramareMedic.ID" />
+            <div class="form-group">
+                <label asp-for="ProgramareMedic.NumeMedic" class="control-label"></label>
+                <input asp-for="ProgramareMedic.NumeMedic" class="form-control" />
+                <span asp-validation-for="ProgramareMedic.NumeMedic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProgramareMedic.Specializare" class="control-label"></label>
+                <input asp-for="ProgramareMedic.Specializare" class="form-control" />
+                <span asp-validation-for="ProgramareMedic.Specializare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProgramareMedic.PretConsult" class="control-label"></label>
+                <input asp-for="ProgramareMedic.PretConsult" class="form-control" />
+                <span asp-validation-for="ProgramareMedic.PretConsult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProgramareMedic.DataConsult" class="control-label"></label>
+                <input asp-for="ProgramareMedic.DataConsult" class="form-control" />
+                <span asp-validation-for="ProgramareMedic.DataConsult" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ProgramareMedic.SpitalID" class="control-label">Nume Spital</label>
+                <select asp-for="ProgramareMedic.SpitalID" class="form-control" asp-items="ViewBag.SpitalID"></select>
+                <span asp-validation-for="ProgramareMedic.SpitalID" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ProgramareMedic.ConsultatieID" class="control-label">Tip Consultatie</label>
+                <select asp-for="ProgramareMedic.ConsultatieID" class="form-control" asp-items="ViewBag.ConsultatieID"></select>
+                <span asp-validation-for="ProgramareMedic.ConsultatieID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Inapoi la lista prinicpala de programari</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
